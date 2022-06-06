@@ -1,4 +1,4 @@
-package horockey.main;
+package Main;
 
 public class Main {
 
