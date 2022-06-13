@@ -1,4 +1,4 @@
-package Layers;
+package horockey.layers;
 
 import java.awt.image.BufferedImage;
 

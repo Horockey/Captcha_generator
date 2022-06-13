@@ -1,7 +1,7 @@
-package Layers;
+package horockey.layers;
 
 
-import Helpers.Helper;
+import horockey.helpers.Helper;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

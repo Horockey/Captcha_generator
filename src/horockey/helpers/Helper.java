@@ -1,6 +1,5 @@
-package Helpers;
+package horockey.helpers;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
