@@ -62,12 +62,13 @@ public class Generator {
 				img = l.render(img);
 			}
 			img.getGraphics().dispose();
-			String fullFilename = Paths.get(dir, "img_"+Integer.toString(i)+".png").toString();
+			String fileName = ((Base)(this.layers[0])).generatedString;
+			String fullFilename = Paths.get(dir, fileName+".png").toString();
 			File fout = new File(fullFilename);
 			try{
 				ImageIO.write(img, "png", fout);
 			}
-			catch (Exception e){
+			catch (IOException e){
 				System.out.println(e.getMessage());
 			}
 		}

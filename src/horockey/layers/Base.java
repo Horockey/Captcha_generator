@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Base implements ILayer {
+	public String generatedString;
+
 	private final ArrayList<String> fonts = new ArrayList<String>(Arrays.asList(
 			"Calibri",
 			"Cascadia mono",
@@ -21,7 +23,6 @@ public class Base implements ILayer {
 	private final int maxShiftX;
 	private final int minShiftY;
 	private final int maxShiftY;
-
 
 	public static class Options{
 		ArrayList<String> abandonedFonts;
@@ -99,6 +100,7 @@ public class Base implements ILayer {
 			}
 		}
 
+		this.generatedString = "";
 		this.count = opts.count;
 		this.minDegree = opts.minDegree;
 		this.maxDegree = opts.maxDegree;
@@ -126,6 +128,7 @@ public class Base implements ILayer {
 
 
 	public BufferedImage render(BufferedImage src){
+		this.generatedString = "";
 		var g2 = (Graphics2D)src.getGraphics();
 		g2.setBackground(new Color(0.0f, 0.0f, 0.0f, 0.0f));
 		g2.fillRect(0, 0, src.getWidth(), src.getHeight());
@@ -154,7 +157,9 @@ public class Base implements ILayer {
 			afTrans.rotate(phi, 0, 0);
 			var rotatedFont = font.deriveFont(afTrans);
 			g2.setFont(rotatedFont);
-			g2.drawString(getRandomSymbol(), baseX+shiftX, baseY+shiftY);
+			String symb = getRandomSymbol();
+			this.generatedString += symb;
+			g2.drawString(symb, baseX+shiftX, baseY+shiftY);
 		}
 		return src;
 	}
