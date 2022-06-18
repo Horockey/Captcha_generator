@@ -16,6 +16,16 @@ public class Base implements ILayer {
 			"Ink Journal",
 			"Rockwell Nova"
 	));
+	private final int ALPHA = 200;
+	private final ArrayList<Color> colors = new ArrayList<>(Arrays.asList(
+
+			new Color(194, 0, 120, ALPHA),
+			new Color(143, 254, 9, ALPHA),
+			new Color(0, 183, 235, ALPHA),
+			new Color(232, 118, 0, ALPHA),
+			new Color(207, 255, 4, ALPHA),
+			new Color(255, 0, 0, ALPHA)
+	));
 	private final int count;
 	private final double minDegree;
 	private final double maxDegree;
@@ -26,6 +36,8 @@ public class Base implements ILayer {
 
 	public static class Options{
 		ArrayList<String> abandonedFonts;
+		ArrayList<Color> abandonedColors;
+
 		int count;
 		double minDegree;
 		double maxDegree;
@@ -34,15 +46,17 @@ public class Base implements ILayer {
 		int minShiftY;
 		int maxShiftY;
 
-		private static final int defaultCount = 5;
+		private static final int defaultCount = 6;
 		private static final double defaultMinDegree = -Math.PI/6.0;
 		private static final double defaultMaxDegree = Math.PI/6.0;
 		private static final int defaultMinShiftX = 0;
 		private static final int defaultMaxShiftX = 5;
 		private static final int defaultMinShiftY = 0;
-		private static final int defaultMaxShiftY = 10;
+		private static final int defaultMaxShiftY = 15;
 
 		public Options(
+				ArrayList<String> abandonedFonts,
+				ArrayList<Color> abandonedColors,
 				int count,
 				double minDegree,
 				double maxDegree,
@@ -50,6 +64,8 @@ public class Base implements ILayer {
 				int maxShiftX,
 				int minShiftY,
 				int maxShiftY){
+			this.abandonedFonts = abandonedFonts;
+			this.abandonedColors = abandonedColors;
 			this.count = count;
 			this.minDegree = minDegree;
 			this.maxDegree = maxDegree;
@@ -94,12 +110,18 @@ public class Base implements ILayer {
 		if(opts.maxDegree < Options.defaultMinDegree || opts.maxDegree > Options.defaultMaxDegree){
 			opts.maxDegree = Options.defaultMaxDegree;
 		}
+
+
 		if(opts.abandonedFonts != null) {
 			for (var abFont : opts.abandonedFonts){
 				this.fonts.remove(abFont);
 			}
 		}
-
+		if(opts.abandonedColors != null){
+			for(var abColor : opts.abandonedColors){
+				this.colors.remove(abColor);
+			}
+		}
 		this.generatedString = "";
 		this.count = opts.count;
 		this.minDegree = opts.minDegree;
@@ -126,30 +148,35 @@ public class Base implements ILayer {
 		return Character.toString(c);
 	}
 
+	private Color getRandomColor(){
+		int idx = (int)(Math.random()*this.colors.size());
+		return this.colors.get(idx);
+	}
+
 
 	public BufferedImage render(BufferedImage src){
 		this.generatedString = "";
 		var g2 = (Graphics2D)src.getGraphics();
 		g2.setBackground(new Color(0.0f, 0.0f, 0.0f, 0.0f));
-		g2.fillRect(0, 0, src.getWidth(), src.getHeight());
 		g2.setColor(Color.BLACK);
+		g2.fillRect(0, 0, src.getWidth(), src.getHeight());
 		for(int i = 0; i < this.count; i++){
-			var font = new Font(this.fonts.get((int)(Math.random()*this.fonts.size())), Font.PLAIN, 26);
-			int baseX = (int)(src.getWidth()*0.15) + i*((int)(src.getWidth()*0.7) / (this.count));
+			var font = new Font(this.fonts.get((int)(Math.random()*this.fonts.size())), Font.PLAIN, 30);
+			int baseX = (int)(src.getWidth()*0.1) + i*((int)(src.getWidth()*0.8) / (this.count));
 			int baseY = src.getHeight() / 2;
 			int shiftX = (minShiftX + (int)(Math.random()*(maxShiftX - minShiftX))) * (int)Math.signum(Math.random()-0.5);
 			if(baseX + shiftX < 0){
 				shiftX = -baseX;
 			}
-			if(shiftX+baseX > src.getWidth() - 10){
-				shiftX = src.getWidth() - baseX;
+			if(shiftX+baseX > src.getWidth() - 15){
+				shiftX = src.getWidth() - baseX - 15;
 			}
 			int shiftY = minShiftX + (int)(Math.random()*(maxShiftY - minShiftY)) * (int)Math.signum(Math.random()-0.5);
 			if(baseY + shiftY < 0){
 				shiftY = -baseY;
 			}
-			if(baseY + shiftY > src.getHeight() - 10){
-				shiftY = src.getHeight() - baseY;
+			if(baseY + shiftY > src.getHeight() - 15){
+				shiftY = src.getHeight() - baseY - 15;
 			}
 			double phi = minDegree + Math.random()*(maxDegree-minDegree);
 			g2.setFont(font);
@@ -159,7 +186,10 @@ public class Base implements ILayer {
 			g2.setFont(rotatedFont);
 			String symb = getRandomSymbol();
 			this.generatedString += symb;
+			var defaultColor = g2.getColor();
+			g2.setColor(getRandomColor());
 			g2.drawString(symb, baseX+shiftX, baseY+shiftY);
+			g2.setColor(defaultColor);
 		}
 		return src;
 	}

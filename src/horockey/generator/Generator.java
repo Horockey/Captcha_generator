@@ -73,4 +73,10 @@ public class Generator {
 			}
 		}
 	}
+
+	public void setLayers(ILayer[] layers){
+		if(layers != null && layers.length != 0) {
+			this.layers = layers;
+		}
+	}
 }
