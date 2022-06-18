@@ -1,4 +1,4 @@
-package horockey.generator;
+package horockey.captchaGenerator;
 
 import horockey.layers.Base;
 import horockey.layers.ILayer;
@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 
-public class Generator {
+public class CaptchaGenerator {
 	public static class Options{
 		public ILayer[] layers;
 		public int width;
@@ -36,7 +36,7 @@ public class Generator {
 	private int width = 0;
 	private int height = 0;
 
-	public Generator(Generator.Options opts){
+	public CaptchaGenerator(CaptchaGenerator.Options opts){
 		if (opts == null){
 			opts = new Options();
 		}
