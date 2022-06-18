@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
 
-public class Helper {
+public class Helpers {
 	public static BufferedImage copy(BufferedImage bufferedImage)
 	{
 		ColorModel colorModel = bufferedImage.getColorModel();
