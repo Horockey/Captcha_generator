@@ -32,8 +32,8 @@ public class Helpers {
 		for(int y = 0; y < height; y++){
 			for(int x = 0; x < width; x++){
 				Point p = new Point(x, y);
-				double ratioColor1 = (double) dist(p, p1) / maxDist;
-				double ratioColor2 = (double) dist(p, p2) / maxDist;
+				double ratioColor1 = (double)dist(p, p1)/maxDist;
+				double ratioColor2 = (double)dist(p, p2)/maxDist;
 				int r = ((int)(c1.getRed()*ratioColor1) + (int)(c2.getRed()*ratioColor2)) % 256;
 				int g = ((int)(c1.getGreen()*ratioColor1) + (int)(c2.getGreen()*ratioColor2)) % 256;
 				int b = ((int)(c1.getBlue()*ratioColor1) + (int)(c2.getBlue()*ratioColor2)) % 256;
@@ -44,5 +44,45 @@ public class Helpers {
 	}
 	private static int dist(Point p0, Point p){
 		return (int)(Math.sqrt((p.x-p0.x)*(p.x-p0.x)+(p.y-p0.y)*(p.y-p0.y)));
+	}
+
+	public static boolean isBorderPixel(BufferedImage img, int brightnessThreshold, int borderEpsilon, int x0, int y0){
+		//Is it target pixel or background one
+		if(Helpers.bightness(img.getRGB(x0, y0)) < brightnessThreshold){
+			return false;
+		}
+		for(int dist = 1; dist <= borderEpsilon; dist++){
+			//Can we place upper left corner in bounds?
+			if(x0-dist >= 0 && y0-dist >= 0) {
+				//Scan upper horizontal border
+				for (int x = x0 - dist; x <= x0 + dist && x0 + dist < img.getWidth(); x++) {
+					if (Helpers.bightness(img.getRGB(x, y0 - dist)) < brightnessThreshold) {
+						return true;
+					}
+				}
+				//Scan left vertical border
+				for (int y = y0 - dist; y < y0+dist && y0+dist < img.getHeight(); y++){
+					if(Helpers.bightness(img.getRGB(x0-dist, y)) < brightnessThreshold){
+						return true;
+					}
+				}
+			}
+			//Can we place lower right corner in bounds?
+			if(x0+dist < img.getWidth() && y0+dist < img.getHeight()){
+				//Scan lower horizontal border
+				for (int x = x0 + dist; x >= x0-dist && x >= 0; x--) {
+					if (Helpers.bightness(img.getRGB(x, y0+dist)) < brightnessThreshold) {
+						return true;
+					}
+				}
+				//Scan right vertical border
+				for (int y = y0 + dist; y >= y0-dist && y >= 0; y--){
+					if(Helpers.bightness(img.getRGB(x0+dist, y)) < brightnessThreshold){
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 }
