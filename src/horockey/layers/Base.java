@@ -14,11 +14,13 @@ public class Base implements ILayer {
 			"Ink Journal",
 			"Rockwell Nova"
 	));
-	private int count;
-	private double minDegree;
-	private double maxDegree;
-	private int minShift;
-	private int maxShift;
+	private final int count;
+	private final double minDegree;
+	private final double maxDegree;
+	private final int minShiftX;
+	private final int maxShiftX;
+	private final int minShiftY;
+	private final int maxShiftY;
 
 
 	public static class Options{
@@ -26,29 +28,44 @@ public class Base implements ILayer {
 		int count;
 		double minDegree;
 		double maxDegree;
-		int minShift;
-		int maxShift;
+		int minShiftX;
+		int maxShiftX;
+		int minShiftY;
+		int maxShiftY;
 
 		private static final int defaultCount = 5;
 		private static final double defaultMinDegree = -Math.PI/6.0;
 		private static final double defaultMaxDegree = Math.PI/6.0;
-		private static final int defaultMinShift = 0;
-		private static final int defaultMaxShift = 20;
+		private static final int defaultMinShiftX = 0;
+		private static final int defaultMaxShiftX = 5;
+		private static final int defaultMinShiftY = 0;
+		private static final int defaultMaxShiftY = 10;
 
-		public Options(int count, double minDegree, double maxDegree, int minShift, int maxShift){
+		public Options(
+				int count,
+				double minDegree,
+				double maxDegree,
+				int minShiftX,
+				int maxShiftX,
+				int minShiftY,
+				int maxShiftY){
 			this.count = count;
 			this.minDegree = minDegree;
 			this.maxDegree = maxDegree;
-			this.minShift = minShift;
-			this.maxShift = maxShift;
+			this.minShiftX = minShiftX;
+			this.maxShiftX = maxShiftX;
+			this.minShiftY = minShiftY;
+			this.maxShiftY = maxShiftY;
 		}
 
 		public Options(){
 			this.count = defaultCount;
 			this.minDegree = defaultMinDegree;
 			this.maxDegree = defaultMaxDegree;
-			this.minShift = defaultMinShift;
-			this.maxShift = defaultMaxShift;
+			this.minShiftX = defaultMinShiftX;
+			this.maxShiftX = defaultMaxShiftX;
+			this.minShiftY = defaultMinShiftY;
+			this.maxShiftY = defaultMaxShiftY;
 		}
 	}
 
@@ -56,11 +73,17 @@ public class Base implements ILayer {
 		if (opts.count <= 0 || opts.count >= 8){
 			opts.count = Options.defaultCount;
 		}
-		if (opts.minShift <= Options.defaultMinShift || opts.minShift >= Options.defaultMaxShift){
-			opts.minShift = Options.defaultMinShift;
+		if (opts.minShiftX <= Options.defaultMinShiftX || opts.minShiftX >= Options.defaultMaxShiftX){
+			opts.minShiftX = Options.defaultMinShiftX;
 		}
-		if (opts.maxShift <= opts.minShift || opts.maxShift >=  Options.defaultMaxShift){
-			opts.maxShift = Options.defaultMaxShift;
+		if (opts.maxShiftX <= opts.minShiftX || opts.maxShiftX >=  Options.defaultMaxShiftX){
+			opts.maxShiftX = Options.defaultMaxShiftX;
+		}
+		if (opts.minShiftY <= Options.defaultMinShiftY || opts.minShiftY >= Options.defaultMaxShiftY){
+			opts.minShiftY = Options.defaultMinShiftY;
+		}
+		if (opts.maxShiftY <= opts.minShiftY || opts.maxShiftY >=  Options.defaultMaxShiftY){
+			opts.maxShiftY = Options.defaultMaxShiftY;
 		}
 		opts.minDegree %= 2*Math.PI;
 		if (opts.minDegree < Options.defaultMinDegree || opts.minDegree > Options.defaultMaxDegree) {
@@ -79,8 +102,10 @@ public class Base implements ILayer {
 		this.count = opts.count;
 		this.minDegree = opts.minDegree;
 		this.maxDegree = opts.maxDegree;
-		this.minShift = opts.minShift;
-		this.maxShift = opts.maxShift;
+		this.minShiftX = opts.minShiftX;
+		this.maxShiftX = opts.maxShiftX;
+		this.minShiftY = opts.minShiftY;
+		this.maxShiftY = opts.maxShiftY;
 	}
 
 	private String getRandomSymbol(){
@@ -106,17 +131,17 @@ public class Base implements ILayer {
 		g2.fillRect(0, 0, src.getWidth(), src.getHeight());
 		g2.setColor(Color.BLACK);
 		for(int i = 0; i < this.count; i++){
-			var font = new Font(this.fonts.get((int)(Math.random()*this.fonts.size())), Font.PLAIN, 30);
-			int baseX = (src.getWidth() / (2*this.count)) + i*(src.getWidth() / (this.count));
+			var font = new Font(this.fonts.get((int)(Math.random()*this.fonts.size())), Font.PLAIN, 26);
+			int baseX = (int)(src.getWidth()*0.15) + i*((int)(src.getWidth()*0.7) / (this.count));
 			int baseY = src.getHeight() / 2;
-			int shiftX = (minShift + (int)(Math.random()*(maxShift-minShift))) * (int)Math.signum(Math.random()-0.5);
+			int shiftX = (minShiftX + (int)(Math.random()*(maxShiftX - minShiftX))) * (int)Math.signum(Math.random()-0.5);
 			if(baseX + shiftX < 0){
 				shiftX = -baseX;
 			}
 			if(shiftX+baseX > src.getWidth() - 10){
 				shiftX = src.getWidth() - baseX;
 			}
-			int shiftY = minShift + (int)(Math.random()*(maxShift-minShift)) * (int)Math.signum(Math.random()-0.5);
+			int shiftY = minShiftX + (int)(Math.random()*(maxShiftY - minShiftY)) * (int)Math.signum(Math.random()-0.5);
 			if(baseY + shiftY < 0){
 				shiftY = -baseY;
 			}
