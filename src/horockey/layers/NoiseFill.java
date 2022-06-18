@@ -22,14 +22,13 @@ public class NoiseFill implements ILayer{
 	}
 
 	public NoiseFill(NoiseFill.Options opts){
-		if(opts.brightnessThreshold <= 0){
+		if(opts.brightnessThreshold <= 0 || opts.brightnessThreshold > 255){
 			opts.brightnessThreshold = Options.defaultBrightnessThreshold;
 		}
 		this.brightnessThreshold = opts.brightnessThreshold;
 	}
 
 	public BufferedImage render(BufferedImage src) {
-		var g2 = (Graphics2D)src.getGraphics();
 		var dst = Helpers.copy(src);
 		for(int y = 0; y < dst.getHeight(); y++){
 			for(int x = 0; x < dst.getWidth(); x++){

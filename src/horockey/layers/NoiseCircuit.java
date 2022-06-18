@@ -4,7 +4,6 @@ import horockey.helpers.Helpers;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
 
 public class NoiseCircuit implements ILayer{
 	private final int brightnessThreshold;
@@ -28,7 +27,7 @@ public class NoiseCircuit implements ILayer{
 	}
 
 	public NoiseCircuit(NoiseCircuit.Options opts){
-		if(opts.brightnessThreshold <= 0){
+		if(opts.brightnessThreshold <= 0 || opts.brightnessThreshold > 255){
 			opts.brightnessThreshold = Options.defaultBrightnessThreshold;
 		}
 		if(opts.borderEpsilon <= 0){
@@ -39,7 +38,6 @@ public class NoiseCircuit implements ILayer{
 	}
 
 	public BufferedImage render(BufferedImage src) {
-		var g2 = (Graphics2D)src.getGraphics();
 		var dst = Helpers.copy(src);
 		for(int y = 0; y < dst.getHeight(); y++){
 			for(int x = 0; x < dst.getWidth(); x++){
