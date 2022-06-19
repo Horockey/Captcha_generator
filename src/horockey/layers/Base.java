@@ -147,9 +147,11 @@ public class Base implements ILayer {
 		return Character.toString(c);
 	}
 
-	private Color getRandomColor(){
-		int idx = (int)(Math.random()*this.colors.size());
-		return this.colors.get(idx);
+	private Color getRandomColor(Color besidesColor){
+		var clrs = new ArrayList<Color>(this.colors);
+		clrs.remove(besidesColor);
+		int idx = (int)(Math.random()*clrs.size());
+		return clrs.get(idx);
 	}
 
 
@@ -159,6 +161,7 @@ public class Base implements ILayer {
 		g2.setBackground(new Color(0.0f, 0.0f, 0.0f, 0.0f));
 		g2.setColor(Color.BLACK);
 		g2.fillRect(0, 0, src.getWidth(), src.getHeight());
+		Color lastColor = null;
 		for(int i = 0; i < this.count; i++){
 			var font = new Font(this.fonts.get((int)(Math.random()*this.fonts.size())), Font.PLAIN, 30);
 			int baseX = (int)(src.getWidth()*0.1) + i*((int)(src.getWidth()*0.8) / (this.count));
@@ -186,7 +189,9 @@ public class Base implements ILayer {
 			String symb = getRandomSymbol();
 			this.generatedString += symb;
 			var defaultColor = g2.getColor();
-			g2.setColor(getRandomColor());
+			var col = getRandomColor(lastColor);
+			lastColor = col;
+			g2.setColor(col);
 			g2.drawString(symb, baseX+shiftX, baseY+shiftY);
 			g2.setColor(defaultColor);
 		}
