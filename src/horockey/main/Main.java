@@ -8,8 +8,8 @@ public class Main {
 	public static void main(String[] args) {
 		CaptchaGenerator gen = new CaptchaGenerator(new CaptchaGenerator.Options());
 		gen.setLayers(new ILayer[]{
-				new Base(new Base.Options()),
-				new GradientCircuit(new GradientCircuit.Options())
+			new Base(new Base.Options()),
+			new Waves(new Waves.Options())
 		});
 		gen.Generate(100, "D://Generated");
 	}
