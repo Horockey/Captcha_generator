@@ -5,7 +5,7 @@ import horockey.helpers.Helpers;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class GradientFill implements ILayer{
+public class GradientFill implements IRenderable {
 	private final int brightnessThreshold;
 	private final Color color1;
 	private final Color color2;

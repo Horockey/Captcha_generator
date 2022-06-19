@@ -2,6 +2,6 @@ package horockey.layers;
 
 import java.awt.image.BufferedImage;
 
-public interface ILayer {
+public interface IRenderable {
 	BufferedImage render(BufferedImage src);
 }

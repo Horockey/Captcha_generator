@@ -7,7 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		CaptchaGenerator gen = new CaptchaGenerator(new CaptchaGenerator.Options());
-		gen.setLayers(new ILayer[]{
+		gen.setLayers(new IRenderable[]{
 			new Base(new Base.Options()),
 			new Waves(new Waves.Options())
 		});

@@ -5,7 +5,7 @@ import horockey.helpers.Helpers;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class NoiseCircuit implements ILayer {
+public class NoiseCircuit implements IRenderable {
 	private final int brightnessThreshold;
 	private final int borderEpsilon;
 

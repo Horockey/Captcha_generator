@@ -5,7 +5,7 @@ import horockey.helpers.Helpers;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class GradientCircuit implements ILayer{
+public class GradientCircuit implements IRenderable {
 	private final int brightnessThreshold;
 	private final int borderEpsilon;
 	private final Color color1;

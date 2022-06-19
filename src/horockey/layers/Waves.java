@@ -5,7 +5,7 @@ import horockey.helpers.Helpers;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Waves implements ILayer{
+public class Waves implements IRenderable {
 	private final double amplitudeMin;
 	private final double amplitudeMax;
 	private final double phaseMin;

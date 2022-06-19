@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Base implements ILayer {
+public class Base implements IRenderable {
 	public String generatedString;
 
 	private final ArrayList<String> fonts = new ArrayList<>(Arrays.asList(

@@ -6,7 +6,7 @@ import horockey.helpers.Helpers;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Grayscale implements ILayer {
+public class Grayscale implements IRenderable {
 	public BufferedImage render(BufferedImage src) {
 		var dst = Helpers.copy(src);
 		for (int y = 0; y < dst.getHeight(); y++) {
