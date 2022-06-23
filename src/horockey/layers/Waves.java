@@ -102,7 +102,6 @@ public class Waves implements IRenderable {
 		amplitudes[1] = this.amplitudeMin + Math.random()*(this.amplitudeMax-this.amplitudeMin);
 
 		var dst = Helpers.copy(src);
-		int cnt = 0;
 		for(int dstY = 0; dstY < dst.getHeight(); dstY++){
 			for(int dstX = 0; dstX < dst.getWidth(); dstX++) {
 				int srcX = (int)(
@@ -119,7 +118,6 @@ public class Waves implements IRenderable {
 				);
 				if(srcX < 0 || srcX >= src.getWidth() || srcY < 0 || srcY >= src.getHeight()){
 					dst.setRGB(dstX, dstY, Color.WHITE.getRGB());
-					cnt++;
 					continue;
 				}
 				dst.setRGB(dstX, dstY, src.getRGB(srcX, srcY));

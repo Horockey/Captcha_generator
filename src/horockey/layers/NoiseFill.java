@@ -33,7 +33,7 @@ public class NoiseFill implements IRenderable {
 		for(int y = 0; y < dst.getHeight(); y++){
 			for(int x = 0; x < dst.getWidth(); x++){
 				int pix = src.getRGB(x, y);
-				int br = Helpers.bightness(pix);
+				int br = Helpers.brightness(pix);
 				if (br <= this.brightnessThreshold){
 					int r = (int)(Math.random() * 256);
 					int g = (int)(Math.random() * 256);

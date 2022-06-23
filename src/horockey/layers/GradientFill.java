@@ -70,7 +70,7 @@ public class GradientFill implements IRenderable {
 		for(int x = 0; x < src.getWidth(); x++){
 			for(int y = 0; y < src.getHeight(); y++){
 				int pix = src.getRGB(x, y);
-				int br = Helpers.bightness(pix);
+				int br = Helpers.brightness(pix);
 				if (br <= this.brightnessThreshold) {
 					dst.setRGB(x, y, pattern.getRGB(x, y));
 				} else {

@@ -9,7 +9,7 @@ public class Main {
 		CaptchaGenerator gen = new CaptchaGenerator(new CaptchaGenerator.Options());
 		gen.setLayers(new IRenderable[]{
 			new Base(new Base.Options()),
-			new Waves(new Waves.Options())
+			new Twirl(new Twirl.Options())
 		});
 		gen.Generate(100, "D://Generated");
 	}
