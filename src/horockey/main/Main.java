@@ -1,11 +1,9 @@
 package horockey.main;
 
-import com.sun.source.tree.Tree;
 import horockey.captchaGenerator.CaptchaGenerator;
 import horockey.layers.*;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Arrays;
 import java.util.TreeMap;
 import java.util.logging.Logger;
