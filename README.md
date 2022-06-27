@@ -27,9 +27,9 @@ captcha_generator -layers [-directory] [-count]
 CaptchaGenerator generator = new CaptchaGenerator(new CaptchaGenerator.Options());
 
 generator.setLayers(new IRenderable[]{
-new Base(new Base.Options()),
-new Waves(new Waves.Options()),
-new NoiseFill(new NoiseFill.Options())
+  new Base(new Base.Options()),
+  new Waves(new Waves.Options()),
+  new NoiseFill(new NoiseFill.Options())
 });
 
 generator.generate(100, "./generated")
