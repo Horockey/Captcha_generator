@@ -46,11 +46,11 @@ generator.generate(100, "./generated")
 <details>
 <summary>Пример</summary>
 
-![1ieoU1](.\src\horockey\samples\Base\1ieoU1.png)
-![NA6vfz](.\src\horockey\samples\Base\NA6vfz.png)
-![voK8Np](.\src\horockey\samples\Base\voK8Np.png)
-![weWq1S](.\src\horockey\samples\Base\weWq1S.png)
-![XC6UsH](.\src\horockey\samples\Base\XC6UsH.png)
+![1ieoU1](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Base/1ieoU1.png)
+![NA6vfz](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Base/NA6vfz.png)
+![voK8Np](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Base/voK8Np.png)
+![weWq1S](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Base/weWq1S.png)
+![XC6UsH](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Base/XC6UsH.png)
 
 </details>
 
@@ -64,11 +64,11 @@ generator.generate(100, "./generated")
 <details>
 <summary>Пример</summary>
 
-![7SbOtI](.\src\horockey\samples\Noise_fill\7SbOtI.png)
-![dgaOMI](.\src\horockey\samples\Noise_fill\dgaOMI.png)
-![mPZ2gN](.\src\horockey\samples\Noise_fill\mPZ2gN.png)
-![nmYa4l](.\src\horockey\samples\Noise_fill\nmYa4l.png)
-![zD8P0G](.\src\horockey\samples\Noise_fill\zD8P0G.png)
+![7SbOtI](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Noise_fill/7SbOtI.png)
+![dgaOMI](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Noise_fill/dgaOMI.png)
+![mPZ2gN](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Noise_fill/mPZ2gN.png)
+![nmYa4l](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Noise_fill/nmYa4l.png)
+![zD8P0G](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Noise_fill/zD8P0G.png)
 
 </details>
 
@@ -83,11 +83,11 @@ generator.generate(100, "./generated")
 <details>
 <summary>Пример</summary>
 
-![3qojMG](.\src\horockey\samples\Noise_circuit\3qojMG.png)
-![5rGcwS](.\src\horockey\samples\Noise_circuit\5rGcwS.png)
-![eXeW75](.\src\horockey\samples\Noise_circuit\eXeW75.png)
-![fCO3WK](.\src\horockey\samples\Noise_circuit\fCO3WK.png)
-![wPtnqr](.\src\horockey\samples\Noise_circuit\wPtnqr.png)
+![3qojMG](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Noise_circuit/3qojMG.png)
+![5rGcwS](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Noise_circuit/5rGcwS.png)
+![eXeW75](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Noise_circuit/eXeW75.png)
+![fCO3WK](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Noise_circuit/fCO3WK.png)
+![wPtnqr](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Noise_circuit/wPtnqr.png)
 
 </details>
 
@@ -101,11 +101,11 @@ generator.generate(100, "./generated")
 <details>
 <summary>Пример</summary>
 
-![2pLXzO](.\src\horockey\samples\Gradient_fill\2pLXzO.png)
-![5UIkUw](.\src\horockey\samples\Gradient_fill\5UIkUw.png)
-![5xyoWm](.\src\horockey\samples\Gradient_fill\5xyoWm.png)
-![T0OTj5](.\src\horockey\samples\Gradient_fill\T0OTj5.png)
-![Y8KJ2o](.\src\horockey\samples\Gradient_fill\Y8KJ2o.png)
+![2pLXzO](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Gradient_fill/2pLXzO.png)
+![5UIkUw](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Gradient_fill/5UIkUw.png)
+![5xyoWm](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Gradient_fill/5xyoWm.png)
+![T0OTj5](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Gradient_fill/T0OTj5.png)
+![Y8KJ2o](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Gradient_fill/Y8KJ2o.png)
 
 </details>
 
@@ -116,11 +116,11 @@ generator.generate(100, "./generated")
 <details>
 <summary>Пример</summary>
 
-![1ZCsNg](.\src\horockey\samples\Gradient_circuit\1ZCsNg.png)
-![581aVv](.\src\horockey\samples\Gradient_circuit\581aVv.png)
-![jVMSL5](.\src\horockey\samples\Gradient_circuit\jVMSL5.png)
-![rMIkse](.\src\horockey\samples\Gradient_circuit\rMIkse.png)
-![wy3rWj](.\src\horockey\samples\Gradient_circuit\wy3rWj.png)
+![1ZCsNg](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Gradient_circuit/1ZCsNg.png)
+![581aVv](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Gradient_circuit/581aVv.png)
+![jVMSL5](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Gradient_circuit/jVMSL5.png)
+![rMIkse](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Gradient_circuit/rMIkse.png)
+![wy3rWj](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Gradient_circuit/wy3rWj.png)
 
 </details>
 
@@ -135,11 +135,11 @@ generator.generate(100, "./generated")
 <details>
 <summary>Пример</summary>
 
-![2PR71o](.\src\horockey\samples\Twirl\2PR71o.png)
-![6uEM3h](.\src\horockey\samples\Twirl\6uEM3h.png)
-![aGQXjN](.\src\horockey\samples\Twirl\aGQXjN.png)
-![CKkMv2](.\src\horockey\samples\Twirl\CKkMv2.png)
-![wpWAkU](.\src\horockey\samples\Twirl\wpWAkU.png)
+![2PR71o](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Twirl/2PR71o.png)
+![6uEM3h](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Twirl/6uEM3h.png)
+![aGQXjN](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Twirl/aGQXjN.png)
+![CKkMv2](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Twirl/CKkMv2.png)
+![wpWAkU](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Twirl/wpWAkU.png)
 
 </details>
 
@@ -153,10 +153,10 @@ generator.generate(100, "./generated")
 <details>
 <summary>Пример</summary>
 
-![806W2Z](.\src\horockey\samples\Waves\806W2Z.png)
-![D47WA1](.\src\horockey\samples\Waves\D47WA1.png)
-![hUznRN](.\src\horockey\samples\Waves\hUznRN.png)
-![KTbdrG](.\src\horockey\samples\Waves\KTbdrG.png)
-![ZrcLib](.\src\horockey\samples\Waves\ZrcLib.png)
+![806W2Z](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Waves/806W2Z.png)
+![D47WA1](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Waves/D47WA1.png)
+![hUznRN](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Waves/hUznRN.png)
+![KTbdrG](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Waves/KTbdrG.png)
+![ZrcLib](https://raw.githubusercontent.com/Horockey/Captcha_generator/dev/src/horockey/samples/Waves/ZrcLib.png)
 
 </details>
