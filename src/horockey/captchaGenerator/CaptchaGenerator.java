@@ -1,7 +1,7 @@
-package horockey.generator;
+package horockey.captchaGenerator;
 
 import horockey.layers.Base;
-import horockey.layers.ILayer;
+import horockey.layers.IRenderable;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -9,17 +9,17 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 
-public class Generator {
+public class CaptchaGenerator {
 	public static class Options{
-		public ILayer[] layers;
+		public IRenderable[] layers;
 		public int width;
 		public int height;
 
-		private static final ILayer[] defaultLayers = new ILayer[]{new Base(new Base.Options())};
+		private static final IRenderable[] defaultLayers = new IRenderable[]{new Base(new Base.Options())};
 		private static final int defaultWidth = 180;
 		private static final int defaultHeight = 70;
 
-		public Options(ILayer[] layers, int width, int height, int letterCount) {
+		public Options(IRenderable[] layers, int width, int height, int letterCount) {
 			this.layers = layers;
 			this.width = width;
 			this.height = height;
@@ -32,11 +32,11 @@ public class Generator {
 		}
 
 	}
-	private ILayer[] layers = null;
+	private IRenderable[] layers = null;
 	private int width = 0;
 	private int height = 0;
 
-	public Generator(Generator.Options opts){
+	public CaptchaGenerator(CaptchaGenerator.Options opts){
 		if (opts == null){
 			opts = new Options();
 		}
@@ -74,7 +74,7 @@ public class Generator {
 		}
 	}
 
-	public void setLayers(ILayer[] layers){
+	public void setLayers(IRenderable[] layers){
 		if(layers != null && layers.length != 0) {
 			this.layers = layers;
 		}

@@ -6,10 +6,10 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Base implements ILayer {
+public class Base implements IRenderable {
 	public String generatedString;
 
-	private final ArrayList<String> fonts = new ArrayList<String>(Arrays.asList(
+	private final ArrayList<String> fonts = new ArrayList<>(Arrays.asList(
 			"Calibri",
 			"Cascadia mono",
 			"Impact",
@@ -19,12 +19,11 @@ public class Base implements ILayer {
 	private final int ALPHA = 200;
 	private final ArrayList<Color> colors = new ArrayList<>(Arrays.asList(
 
-			new Color(194, 0, 120, ALPHA),
-			new Color(143, 254, 9, ALPHA),
-			new Color(0, 183, 235, ALPHA),
-			new Color(232, 118, 0, ALPHA),
-			new Color(207, 255, 4, ALPHA),
-			new Color(255, 0, 0, ALPHA)
+			new Color(0, 0x7f, 0x09, ALPHA),
+			new Color(0, 0, 0xff, ALPHA),
+			new Color(0xff, 0x73, 0, ALPHA),
+			new Color(0xe7, 0xff, 0, ALPHA),
+			new Color(0xff, 0, 0, ALPHA)
 	));
 	private final int count;
 	private final double minDegree;
@@ -38,13 +37,13 @@ public class Base implements ILayer {
 		ArrayList<String> abandonedFonts;
 		ArrayList<Color> abandonedColors;
 
-		int count;
-		double minDegree;
-		double maxDegree;
-		int minShiftX;
-		int maxShiftX;
-		int minShiftY;
-		int maxShiftY;
+		public int count;
+		public double minDegree;
+		public double maxDegree;
+		public int minShiftX;
+		public int maxShiftX;
+		public int minShiftY;
+		public int maxShiftY;
 
 		private static final int defaultCount = 6;
 		private static final double defaultMinDegree = -Math.PI/6.0;
@@ -148,9 +147,11 @@ public class Base implements ILayer {
 		return Character.toString(c);
 	}
 
-	private Color getRandomColor(){
-		int idx = (int)(Math.random()*this.colors.size());
-		return this.colors.get(idx);
+	private Color getRandomColor(Color besidesColor){
+		var clrs = new ArrayList<Color>(this.colors);
+		clrs.remove(besidesColor);
+		int idx = (int)(Math.random()*clrs.size());
+		return clrs.get(idx);
 	}
 
 
@@ -160,6 +161,7 @@ public class Base implements ILayer {
 		g2.setBackground(new Color(0.0f, 0.0f, 0.0f, 0.0f));
 		g2.setColor(Color.BLACK);
 		g2.fillRect(0, 0, src.getWidth(), src.getHeight());
+		Color lastColor = null;
 		for(int i = 0; i < this.count; i++){
 			var font = new Font(this.fonts.get((int)(Math.random()*this.fonts.size())), Font.PLAIN, 30);
 			int baseX = (int)(src.getWidth()*0.1) + i*((int)(src.getWidth()*0.8) / (this.count));
@@ -187,7 +189,9 @@ public class Base implements ILayer {
 			String symb = getRandomSymbol();
 			this.generatedString += symb;
 			var defaultColor = g2.getColor();
-			g2.setColor(getRandomColor());
+			var col = getRandomColor(lastColor);
+			lastColor = col;
+			g2.setColor(col);
 			g2.drawString(symb, baseX+shiftX, baseY+shiftY);
 			g2.setColor(defaultColor);
 		}
