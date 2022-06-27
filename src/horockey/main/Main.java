@@ -3,6 +3,9 @@ package horockey.main;
 import horockey.captchaGenerator.CaptchaGenerator;
 import horockey.layers.*;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.TreeMap;
@@ -105,7 +108,15 @@ public class Main {
 				params.directory = argSlices.get(i).get(0);
 			}
 		}
-
+		if(params.count == 0){
+			params.count = 100;
+		}
+		if(params.directory.equals("")){
+			params.directory = Paths.get(System.getProperty("user.dir"), "generated").toString();
+			if(!Files.exists(Paths.get(params.directory))){
+				new File(params.directory).mkdirs();
+			}
+		}
 		logger.info("Captcha generator CLI initialized");
 		return params;
 	}
