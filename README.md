@@ -1,4 +1,4 @@
-# Captcha_generator
+# Captcha_generator CLI
 
 Консольное приложение для демонстрации возможностей пакета CaptchaGenerator -
 генерации графической CAPTCHA.
